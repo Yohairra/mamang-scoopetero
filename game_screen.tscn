@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=3 uid="uid://wtgkxm7v2i3m"]
+
+[ext_resource type="Script" path="res://game_screen.gd" id="1_dnoyj"]
+[ext_resource type="Texture2D" uid="uid://bple5nk8hr20a" path="res://gamebg/GameBg_0.PNG" id="1_eqx5l"]
+[ext_resource type="Texture2D" uid="uid://5rhaxorcyek0" path="res://gamebg/GameBg_1.PNG" id="2_opoep"]
+[ext_resource type="Texture2D" uid="uid://bxnck3vx2otjh" path="res://gamebg/GameBg_2.PNG" id="3_l273f"]
+[ext_resource type="Texture2D" uid="uid://cylfo3dxeyt7m" path="res://gamebg/GameBg_3.PNG" id="4_144hn"]
+[ext_resource type="Texture2D" uid="uid://c0jw7snpa3jbp" path="res://gamebg/GameBg_4.PNG" id="5_j7o3y"]
+[ext_resource type="Texture2D" uid="uid://cmukcx1qxyc4e" path="res://gamebg/GameBg_5.PNG" id="6_ld0x3"]
+[ext_resource type="Texture2D" uid="uid://ghlx4q32spwe" path="res://gamebg/GameBg_6.PNG" id="7_j406t"]
+[ext_resource type="Texture2D" uid="uid://ccqpuhwb17qyf" path="res://gamebg/GameBg_7.PNG" id="8_c8x7l"]
+[ext_resource type="Texture2D" uid="uid://dstsw1efswh57" path="res://gamebg/GameBg_8.PNG" id="9_brvm0"]
+[ext_resource type="Texture2D" uid="uid://v573kgptwyvs" path="res://gamebg/GameBg_9.PNG" id="10_bjf3b"]
+[ext_resource type="Texture2D" uid="uid://bpgbl7v66b01d" path="res://gamebg/GameBg_10.PNG" id="11_16li8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nb52s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eqx5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_opoep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l273f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_144hn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j7o3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ld0x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j406t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c8x7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_brvm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bjf3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_16li8")
+}],
+"loop": true,
+"name": &"bg_animation",
+"speed": 5.0
+}]
+
+[node name="Game Screen" type="Node2D"]
+script = ExtResource("1_dnoyj")
+
+[node name="gameBackground" type="AnimatedSprite2D" parent="."]
+position = Vector2(640, 320)
+sprite_frames = SubResource("SpriteFrames_nb52s")
+animation = &"bg_animation"
