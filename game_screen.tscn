@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wtgkxm7v2i3m"]
+[gd_scene load_steps=24 format=3 uid="uid://wtgkxm7v2i3m"]
 
 [ext_resource type="Script" path="res://game_screen.gd" id="1_dnoyj"]
 [ext_resource type="Theme" uid="uid://pqbo2q42ddg4" path="res://new_theme.tres" id="2_2mpib"]
@@ -14,8 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dstsw1efswh57" path="res://gamebg/GameBg_8.PNG" id="9_brvm0"]
 [ext_resource type="Texture2D" uid="uid://v573kgptwyvs" path="res://gamebg/GameBg_9.PNG" id="10_bjf3b"]
 [ext_resource type="Texture2D" uid="uid://bpgbl7v66b01d" path="res://gamebg/GameBg_10.PNG" id="11_16li8"]
-[ext_resource type="Texture2D" uid="uid://d1litcl0825jt" path="res://Cart.PNG" id="15_hyj7f"]
+[ext_resource type="Texture2D" uid="uid://dkcqm37v00fmr" path="res://Cart_New.PNG" id="15_xxnbm"]
 [ext_resource type="Texture2D" uid="uid://xw7up7t062i1" path="res://Icecream_Ube.PNG" id="16_jnc7e"]
+[ext_resource type="Texture2D" uid="uid://bu2peqet15m8i" path="res://Icecream_UbeC.PNG" id="17_sb7y2"]
+[ext_resource type="Texture2D" uid="uid://ddlb8572nk165" path="res://Cone.PNG" id="18_juanb"]
+[ext_resource type="Texture2D" uid="uid://bk8sgg3ghyctk" path="res://Cone_Ube.PNG" id="19_vle7t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nb52s"]
 animations = [{
@@ -107,7 +110,7 @@ offset_right = 160.0
 offset_bottom = 640.0
 theme = ExtResource("2_2mpib")
 
-[node name="Cone" type="TextureButton" parent="Panel"]
+[node name="ConeBtn" type="TextureButton" parent="Panel"]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 55.0
@@ -118,7 +121,7 @@ texture_pressed = ExtResource("4_0bgw0")
 
 [node name="Cart" type="Sprite2D" parent="."]
 position = Vector2(1808, 416)
-texture = ExtResource("15_hyj7f")
+texture = ExtResource("15_xxnbm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cart"]
 libraries = {
@@ -126,9 +129,23 @@ libraries = {
 }
 speed_scale = 0.435
 
-[node name="ubeIcecream" type="TextureButton" parent="Cart"]
+[node name="ubeContainer" type="TextureButton" parent="Cart"]
 offset_left = -490.0
 offset_top = 21.0
 offset_right = -275.0
 offset_bottom = 216.0
 texture_normal = ExtResource("16_jnc7e")
+texture_pressed = ExtResource("17_sb7y2")
+
+[node name="Cone" type="Sprite2D" parent="Cart"]
+visible = false
+position = Vector2(315, -170)
+texture = ExtResource("18_juanb")
+
+[node name="Ube" type="Sprite2D" parent="Cart"]
+visible = false
+position = Vector2(315, -170)
+texture = ExtResource("19_vle7t")
+
+[connection signal="pressed" from="Panel/ConeBtn" to="." method="_on_cone_btn_pressed"]
+[connection signal="pressed" from="Cart/ubeContainer" to="." method="_on_ube_container_pressed"]
