@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bple5nk8hr20a"
-path="res://.godot/imported/GameBg_0.PNG-042401e129fb4bc713c8c1fbf9b68ffc.ctex"
+uid="uid://d1litcl0825jt"
+path="res://.godot/imported/Cart.PNG-5f9b6430c9744028fe353c6bf06424a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gamebg/GameBg_0.PNG"
-dest_files=["res://.godot/imported/GameBg_0.PNG-042401e129fb4bc713c8c1fbf9b68ffc.ctex"]
+source_file="res://Cart.PNG"
+dest_files=["res://.godot/imported/Cart.PNG-5f9b6430c9744028fe353c6bf06424a6.ctex"]
 
 [params]
 

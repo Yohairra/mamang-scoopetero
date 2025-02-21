@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://wtgkxm7v2i3m"]
+[gd_scene load_steps=21 format=3 uid="uid://wtgkxm7v2i3m"]
 
 [ext_resource type="Script" path="res://game_screen.gd" id="1_dnoyj"]
-[ext_resource type="Texture2D" uid="uid://bple5nk8hr20a" path="res://gamebg/GameBg_0.PNG" id="1_eqx5l"]
+[ext_resource type="Theme" uid="uid://pqbo2q42ddg4" path="res://new_theme.tres" id="2_2mpib"]
 [ext_resource type="Texture2D" uid="uid://5rhaxorcyek0" path="res://gamebg/GameBg_1.PNG" id="2_opoep"]
+[ext_resource type="Texture2D" uid="uid://duuv0p3ik5k0b" path="res://buttons/Cone_UBtn.PNG" id="3_3gncy"]
 [ext_resource type="Texture2D" uid="uid://bxnck3vx2otjh" path="res://gamebg/GameBg_2.PNG" id="3_l273f"]
+[ext_resource type="Texture2D" uid="uid://dxnq7s0x4khfi" path="res://buttons/Cone_CBtn.PNG" id="4_0bgw0"]
 [ext_resource type="Texture2D" uid="uid://cylfo3dxeyt7m" path="res://gamebg/GameBg_3.PNG" id="4_144hn"]
 [ext_resource type="Texture2D" uid="uid://c0jw7snpa3jbp" path="res://gamebg/GameBg_4.PNG" id="5_j7o3y"]
 [ext_resource type="Texture2D" uid="uid://cmukcx1qxyc4e" path="res://gamebg/GameBg_5.PNG" id="6_ld0x3"]
@@ -12,13 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://dstsw1efswh57" path="res://gamebg/GameBg_8.PNG" id="9_brvm0"]
 [ext_resource type="Texture2D" uid="uid://v573kgptwyvs" path="res://gamebg/GameBg_9.PNG" id="10_bjf3b"]
 [ext_resource type="Texture2D" uid="uid://bpgbl7v66b01d" path="res://gamebg/GameBg_10.PNG" id="11_16li8"]
+[ext_resource type="Texture2D" uid="uid://d1litcl0825jt" path="res://Cart.PNG" id="15_hyj7f"]
+[ext_resource type="Texture2D" uid="uid://xw7up7t062i1" path="res://Icecream_Ube.PNG" id="16_jnc7e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nb52s"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_eqx5l")
-}, {
 "duration": 1.0,
 "texture": ExtResource("2_opoep")
 }, {
@@ -54,10 +55,80 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_ccl67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1808, 416)]
+}
+
+[sub_resource type="Animation" id="Animation_2xaag"]
+resource_name = "cartAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.433333, 0.633333, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1800, 416), Vector2(1587.2, 418), Vector2(1338.93, 416), Vector2(1090.67, 419), Vector2(929.454, 418), Vector2(736, 416)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02tbe"]
+_data = {
+"RESET": SubResource("Animation_ccl67"),
+"cartAnimation": SubResource("Animation_2xaag")
+}
+
 [node name="Game Screen" type="Node2D"]
 script = ExtResource("1_dnoyj")
 
 [node name="gameBackground" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.77, 0.77, 0.77, 1)
 position = Vector2(640, 320)
 sprite_frames = SubResource("SpriteFrames_nb52s")
 animation = &"bg_animation"
+frame = 8
+frame_progress = 0.276437
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 160.0
+offset_bottom = 640.0
+theme = ExtResource("2_2mpib")
+
+[node name="Cone" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 55.0
+offset_right = 110.0
+offset_bottom = 135.0
+texture_normal = ExtResource("3_3gncy")
+texture_pressed = ExtResource("4_0bgw0")
+
+[node name="Cart" type="Sprite2D" parent="."]
+position = Vector2(1808, 416)
+texture = ExtResource("15_hyj7f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cart"]
+libraries = {
+"": SubResource("AnimationLibrary_02tbe")
+}
+speed_scale = 0.435
+
+[node name="ubeIcecream" type="TextureButton" parent="Cart"]
+offset_left = -490.0
+offset_top = 21.0
+offset_right = -275.0
+offset_bottom = 216.0
+texture_normal = ExtResource("16_jnc7e")
