@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://wtgkxm7v2i3m"]
+[gd_scene load_steps=25 format=3 uid="uid://wtgkxm7v2i3m"]
 
 [ext_resource type="Script" path="res://game_screen.gd" id="1_dnoyj"]
 [ext_resource type="Theme" uid="uid://pqbo2q42ddg4" path="res://new_theme.tres" id="2_2mpib"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bu2peqet15m8i" path="res://Icecream_UbeC.PNG" id="17_sb7y2"]
 [ext_resource type="Texture2D" uid="uid://ddlb8572nk165" path="res://Cone.PNG" id="18_juanb"]
 [ext_resource type="Texture2D" uid="uid://bk8sgg3ghyctk" path="res://Cone_Ube.PNG" id="19_vle7t"]
+[ext_resource type="Script" path="res://ube.gd" id="20_cwxn6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nb52s"]
 animations = [{
@@ -146,6 +147,7 @@ texture = ExtResource("18_juanb")
 visible = false
 position = Vector2(315, -170)
 texture = ExtResource("19_vle7t")
+script = ExtResource("20_cwxn6")
 
 [connection signal="pressed" from="Panel/ConeBtn" to="." method="_on_cone_btn_pressed"]
 [connection signal="pressed" from="Cart/ubeContainer" to="." method="_on_ube_container_pressed"]

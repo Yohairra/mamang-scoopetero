@@ -8,19 +8,20 @@ extends Node2D
 
 var is_cone_visible = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
 	Background.play("bg_animation")
 	animation_player.play("cartAnimation")
+	cone.visible = false
+	ube.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta: float):
 	pass
 
-func _on_cone_btn_pressed() -> void:
+func _on_cone_btn_pressed():
 	cone.visible = true
 	is_cone_visible = true
 
-func _on_ube_container_pressed() -> void:
+func _on_ube_container_pressed():
 	if is_cone_visible:
 		ube.visible = true
+		cone.visible = false
